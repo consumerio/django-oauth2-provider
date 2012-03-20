@@ -36,6 +36,8 @@ class Client(models.Model):
     client_id = models.CharField(max_length=255, default=short_token)
     client_secret = models.CharField(max_length=255, default=long_token)
     client_type = models.IntegerField(choices=CLIENT_TYPES)
+    image = models.ImageField("Image", blank=True, null=True, upload_to="application_images", help_text="Your application's icon or avatar.")    
+    description = models.TextField("Description", blank=True, null=True, help_text="A brief description of your application.")
     
     def __unicode__(self):
         return self.redirect_uri
